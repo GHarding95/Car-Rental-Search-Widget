@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Enjoy Travel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .result-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+        
+        .result-header {
+            margin-bottom: 2rem;
+        }
+        
+        .result-header h1 {
+            color: #2d3748;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .result-header p {
+            color: #718096;
+            font-size: 1.1rem;
+        }
+        
+        .query-params {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .param-item {
+            margin-bottom: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .param-label {
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+        }
+        
+        .param-value {
+            color: #2d3748;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .back-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .result-container {
+                padding: 1.5rem;
+                margin: 10px;
+            }
+            
+            .result-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <div class="result-header">
+            <h1>Search Results</h1>
+            <p>Your car rental search parameters</p>
+        </div>
+        
+        <div class="query-params">
+            <div class="param-item">
+                <div class="param-label">Location</div>
+                <div class="param-value" id="locid">-</div>
+            </div>
+            
+            <div class="param-item">
+                <div class="param-label">Pickup Date</div>
+                <div class="param-value" id="pdate">-</div>
+            </div>
+            
+            <div class="param-item">
+                <div class="param-label">Drop-off Date</div>
+                <div class="param-value" id="ddate">-</div>
+            </div>
+            
+            <div class="param-item">
+                <div class="param-label">Pickup Time</div>
+                <div class="param-value" id="ptime">-</div>
+            </div>
+            
+            <div class="param-item">
+                <div class="param-label">Drop-off Time</div>
+                <div class="param-value" id="dtime">-</div>
+            </div>
+        </div>
+        
+        <a href="index.html" class="back-button">← Back to Search</a>
+    </div>
+
+    <script>
+        // Location data mapping
+        const locations = {
+            "1": "LGW - London Gatwick Airport",
+            "2": "FAO - Faro Airport", 
+            "3": "LIS - Lisbon Airport",
+            "4": "FCO - Fiumicino Airport"
+        };
+        
+        // Parse query parameters and display them
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param) || 'Not provided';
+        }
+        
+        // Display the query parameters
+        const locId = getQueryParam('locid');
+        document.getElementById('locid').textContent = locations[locId] || locId;
+        document.getElementById('pdate').textContent = getQueryParam('pdate');
+        document.getElementById('ddate').textContent = getQueryParam('ddate');
+        document.getElementById('ptime').textContent = getQueryParam('ptime');
+        document.getElementById('dtime').textContent = getQueryParam('dtime');
+    </script>
+</body>
+</html>

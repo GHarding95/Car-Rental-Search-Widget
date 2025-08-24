@@ -1,0 +1,636 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Travel Widget Container */
+.travel-widget {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  max-height: 90vh;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow-y: auto;
+}
+
+/* Widget Header */
+.widget-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .widget-header {
+    margin-bottom: 1rem;
+  }
+}
+
+.widget-header h2 {
+  color: #2d3748;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.widget-header p {
+  color: #718096;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Search Form */
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .search-form {
+    gap: 0.75rem;
+  }
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-left: 0.25rem;
+}
+
+/* Visually Hidden (for screen readers) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Form Inputs */
+.form-input {
+  padding: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+  color: #2d3748;
+}
+
+/* Select specific styling */
+select.form-input {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+  padding-right: 2.5rem;
+}
+
+select.form-input:focus {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23667eea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/svg%3e");
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+  color: #a0aec0;
+}
+
+/* Form Rows for side-by-side inputs */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Search Button */
+.search-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 1.25rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.search-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.search-button:active {
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .travel-widget {
+    width: 95%;
+    max-width: 700px;
+    padding: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 2rem 1rem 1rem 1rem;
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .travel-widget {
+    padding: 2rem 1.5rem;
+    margin: 0 auto 2rem auto;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    overflow-y: visible;
+    border-radius: 16px;
+  }
+  
+  .widget-header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .widget-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .widget-header p {
+    font-size: 1rem;
+  }
+  
+  .search-form {
+    gap: 1.25rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .search-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1.5rem 0.75rem 1rem 0.75rem;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .travel-widget {
+    padding: 1.5rem 1rem;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 12px;
+  }
+  
+  .widget-header {
+    margin-bottom: 1.25rem;
+  }
+  
+  .widget-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .widget-header p {
+    font-size: 0.95rem;
+  }
+  
+  .search-form {
+    gap: 1rem;
+  }
+  
+  .form-input {
+    padding: 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  select.form-input {
+    padding-right: 2.25rem;
+  }
+  
+  .search-button {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.95rem;
+    margin-top: 1.25rem;
+  }
+}
+
+/* Animation for form inputs */
+.form-input:focus {
+  animation: inputFocus 0.3s ease;
+}
+
+@keyframes inputFocus {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Hover effects for inputs */
+.form-input:hover {
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+/* Custom scrollbar for date/time inputs */
+.form-input::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5);
+  transition: filter 0.3s ease;
+}
+
+.form-input::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0.3);
+}
+
+/* Focus visible for accessibility */
+.form-input:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Button focus styles */
+.search-button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+
+
+.required-indicator {
+  color: #dc3545;
+  margin-left: 0.25rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Focus styles for better keyboard navigation */
+.form-input:focus,
+.search-button:focus {
+  outline: 2px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-input {
+    border: 2px solid #000;
+  }
+  
+  .search-button {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Test Error Button Styles */
+.test-error-button {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+  font-family: inherit;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.test-error-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+  background: linear-gradient(135deg, #c53030, #a52a2a);
+}
+
+.test-error-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+}
+
+.test-error-button:focus-visible {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+/* Responsive design for test button */
+@media (max-width: 768px) {
+  .test-error-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .test-error-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Test Error Button */
+.test-error-button {
+  background: #e53e3e;
+  background: linear-gradient(180deg, #e53e3e 0%, #c53030 100%);
+  background: -webkit-linear-gradient(top, #e53e3e 0%, #c53030 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 6px rgba(229, 62, 62, 0.3);
+  font-family: inherit;
+  width: 100%;
+  margin: 0;
+}
+
+/* Test Error Button Container for left alignment */
+.test-error-button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.test-error-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+  background: #c53030;
+  background: linear-gradient(180deg, #c53030 0%, #a52a2a 100%);
+  background: -webkit-linear-gradient(top, #c53030 0%, #a52a2a 100%);
+}
+
+.test-error-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+}
+
+.test-error-button:focus-visible {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+/* Responsive design for test button inside travel widget */
+@media (max-width: 768px) {
+  .test-error-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .test-error-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    border-radius: 8px;
+  }
+}
+
+/* Error Boundary Styles */
+.error-boundary {
+  background: linear-gradient(135deg, #fed7d7, #feb2b2);
+  border: 3px solid #e53e3e;
+  border-radius: 16px;
+  padding: 3rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(229, 62, 62, 0.2);
+}
+
+.error-boundary details {
+  margin: 1.5rem 0;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+  border-radius: 8px;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.error-boundary summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #c53030;
+  margin-bottom: 0.5rem;
+}
+
+.error-boundary details p {
+  margin: 0.5rem 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
+}
+
+.error-boundary details strong {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.error-type {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+  color: #742a2a;
+}
+
+.error-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.error-boundary h2 {
+  color: #c53030;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.error-boundary p {
+  color: #742a2a;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.error-boundary p strong {
+  color: #c53030;
+  font-weight: 700;
+}
+
+.retry-button {
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+  font-family: inherit;
+}
+
+.retry-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(229, 62, 62, 0.3);
+  background: linear-gradient(135deg, #c53030, #a52a2a);
+}
+
+.retry-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(229, 62, 62, 0.2);
+}
+
+.retry-button:focus-visible {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+.retry-button.secondary {
+  background: linear-gradient(135deg, #718096, #4a5568);
+  box-shadow: 0 2px 4px rgba(113, 128, 150, 0.2);
+}
+
+.retry-button.secondary:hover {
+  background: linear-gradient(135deg, #4a5568, #2d3748);
+  box-shadow: 0 4px 8px rgba(113, 128, 150, 0.3);
+}
+
+/* Responsive design for error boundary */
+@media (max-width: 768px) {
+  .error-boundary {
+    padding: 1.5rem;
+    margin: 1rem auto;
+  }
+  
+  .error-boundary h2 {
+    font-size: 1.25rem;
+  }
+  
+  .retry-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-boundary {
+    padding: 1rem;
+    margin: 0.5rem auto;
+  }
+  
+  .error-boundary h2 {
+    font-size: 1.1rem;
+  }
+  
+  .error-boundary p {
+    font-size: 0.9rem;
+  }
+  
+  .retry-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
