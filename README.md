@@ -1,0 +1,2 @@
+# Car Rental Search Widget
+A modern car rental search application built with React 19, TypeScript, and Vite. The app is mounted to the DOM element with id `app` in `index.html`, rendering the SearchForm component as the root component. When the form is submitted, users are redirected to `result.html` which displays the search parameters. We're using a fixed locations.json file, next steps would be to implement a list of available cars.
