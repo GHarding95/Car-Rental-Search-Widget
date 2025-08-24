@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build:analyze": "tsc -b && vite build --mode analyze",
+    "build": "tsc --noEmit && vite build",
+    "build:analyze": "tsc --noEmit && vite build --mode analyze",
     "lint": "eslint .",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
+    "type-check:strict": "tsc --noEmit --strict --noImplicitAny --noImplicitReturns --noImplicitThis --exactOptionalPropertyTypes --noUncheckedIndexedAccess",
     "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
