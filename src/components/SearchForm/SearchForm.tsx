@@ -4,8 +4,8 @@ import { LocationSelect } from '../LocationSelect'
 import { DateInput } from '../DateInput'
 import { TimeInput } from '../TimeInput'
 import { TestErrorButton } from '../TestErrorButton'
-import type { FormData, LocationsData } from '../../types'
-import locationsData from '../../assets/Locations.json'
+import type { FormData } from '../../types'
+import locationsData from '../../assets/locations'
 
 export const SearchForm = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -68,7 +68,7 @@ export const SearchForm = () => {
         <LocationSelect
           value={formData.location}
           onChange={handleInputChange}
-          locations={locationsData as LocationsData}
+          locations={locationsData}
         />
 
         <div className="form-row">
