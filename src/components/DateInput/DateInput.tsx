@@ -6,7 +6,7 @@ interface DateInputProps {
   label: string
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  min?: string
+  min?: string | undefined
   required?: boolean
 }
 

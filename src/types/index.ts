@@ -5,7 +5,7 @@ export interface Location {
 }
 
 export interface FormData {
-  location: string
+  location: number | ''  // Changed from string to number | '' to match the actual select values
   pickUpDate: string
   dropOffDate: string
   pickUpTime: string

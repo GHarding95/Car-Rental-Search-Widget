@@ -41,7 +41,7 @@ export const SearchForm = () => {
     try {
       // Create query string with the required keys
       const queryParams = new URLSearchParams({
-        locid: formData.location,
+        locid: formData.location.toString(), // Convert to string for URL
         pdate: formData.pickUpDate,
         ddate: formData.dropOffDate,
         ptime: formData.pickUpTime,
@@ -66,7 +66,7 @@ export const SearchForm = () => {
       <form onSubmit={handleSubmit} className="search-form" aria-labelledby="form-title">
         <h2 id="form-title" className="visually-hidden">Car Rental Search Form</h2>
         <LocationSelect
-          value={formData.location}
+          value={formData.location.toString()} // Convert to string for the select value
           onChange={handleInputChange}
           locations={locationsData}
         />
